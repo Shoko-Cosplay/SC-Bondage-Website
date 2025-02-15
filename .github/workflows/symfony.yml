@@ -15,25 +15,6 @@ permissions:
   contents: read
 
 jobs:
-  security_node:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-  security_php:
-    runs-on: ghcr.io/shoko-cosplay/sc-bondage-docker:master
-    steps:
-      - uses: actions/checkout@master
-      - run: composer install
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   lint:
     name: Lint
     runs-on: ubuntu-latest

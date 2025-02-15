@@ -1,4 +1,5 @@
-### Security Grade
+# Bondage Control Website
+```For Master, Slave, Seft Bondage```
 
 ### Quality of Code
 
