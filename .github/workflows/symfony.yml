@@ -28,4 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: test
-        run: make test 
+        run: make test
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
