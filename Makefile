@@ -48,11 +48,11 @@ rollback:
 
 test: vendor/autoload.php node_modules/time ## Execute les tests
 	$(drtest) phptest bin/console doctrine:schema:validate --skip-sync
-	$(drtest) phptest vendor/bin/paratest -p 4 --runner=WrapperRunner
+	$(drtest) phptest vendor/bin/paratest -p 4 --runner=WrapperRunner --coverage-clover=coverage.xml
 
 tt: vendor/autoload.php ## Lance le watcher phpunit
 	$(drtest) phptest bin/console doctrine:schema:validate --skip-sync
-	$(drtest) phptest bin/phpunit --coverage-clover=coverage.xml
+	$(drtest) phptest bin/phpunit
 	# $(drtest) phptest bin/console cache:clear --env=test
 	# $(drtest) phptest vendor/bin/phpunit-watcher watch --filter="nothing"
 
