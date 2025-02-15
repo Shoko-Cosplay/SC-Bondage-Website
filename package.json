@@ -37,7 +37,7 @@
     "flatpickr": "^4.6.9",
     "headless-elements": "^0.0.2",
     "htm": "^3.0.4",
-    "markdown-to-jsx": "7.1.2",
+    "markdown-to-jsx": "7.4.0",
     "mermaid": "^10.9.1",
     "preact": "^10.22.0",
     "react-diff-viewer": "^3.1.1",
