@@ -23,8 +23,10 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
 /node_modules
 .idea/
+
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
