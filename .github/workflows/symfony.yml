@@ -10,8 +10,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-env:
-  REGISTRY: ghcr.io
+
 permissions:
   contents: read
 
@@ -19,28 +18,14 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
     steps:
-      - name: Login registry
-        run : echo "${{ secrets.GITHUB_TOKEN }}" docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - uses: actions/checkout@master
       - name: lint
         run: make lint
   test:
     name: Test
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
     steps:
-      - name: Login registry
-        run : echo "${{ secrets.GITHUB_TOKEN }}" docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - uses: actions/checkout@master
       - name: test
         run: make test 
