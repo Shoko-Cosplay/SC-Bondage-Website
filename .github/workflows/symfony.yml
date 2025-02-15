@@ -18,7 +18,6 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    needs: [job1, job2]
     steps:
       - uses: actions/checkout@master
       - name: lint
