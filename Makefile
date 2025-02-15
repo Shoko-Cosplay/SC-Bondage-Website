@@ -47,7 +47,7 @@ rollback:
 	$(sy) doctrine:migration:migrate prev
 
 test: vendor/autoload.php node_modules/time ## Execute les tests
-	echo "APP_ENV=dev" => .env.local
+	echo "APP_ENV=test" => .env.local
 	$(drtest) phptest bin/console doctrine:schema:validate --skip-sync
 	$(drtest) phptest vendor/bin/paratest -p 4 --runner=WrapperRunner
 
