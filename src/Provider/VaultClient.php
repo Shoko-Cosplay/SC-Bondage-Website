@@ -21,7 +21,7 @@ class VaultClient
         $this->unsealToken = $_ENV['VAULT_UNSEAL'];
     }
 
-    public function seal(): true
+    public function seal(): bool
     {
         try {
             $this->httpClient->request("POST", $this->vaultAddress . "/v1/sys/seal", [
@@ -29,10 +29,10 @@ class VaultClient
                     'X-Vault-Token' => $this->rootToken,
                 ]
             ]);
+            return true;
         } catch (ClientExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface $e) {
-
+            return false;
         }
-        return true;
     }
 
     public function isSeal() : bool

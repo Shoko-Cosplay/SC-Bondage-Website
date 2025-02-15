@@ -19,7 +19,7 @@ class VaultClientTest extends KernelTestCase
         $this->assertInstanceOf(VaultClient::class,$vaultClient);
     }
 
-    public function testSeal()
+    public function testSeal() : void
     {
         $vaultClient = $this->createMock(VaultClient::class);
         $this->assertTrue($vaultClient->seal());
