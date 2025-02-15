@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  phptest:
+    image: ghcr.io/shoko-cosplay/sc-bondage-docker:master
+    volumes:
+      - .:/var/www:delegated
+    links:
+      - dbtest
+      - redistest
+    networks:
+      - test
+    environment:
+      REDIS_HOST: redistest
+      DATABASE_URL: postgresql://test:test@dbtest:5432/test?serverVersion=12&charset=utf8
+  redistest:
+    restart: unless-stopped
+    image: redis:7-alpine
+    networks:
+      - test
+  dbtest:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+    ports:
+      - 5433:5432
+    networks:
+      - test
+
+networks:
+  test:
