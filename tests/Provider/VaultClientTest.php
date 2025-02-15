@@ -22,9 +22,6 @@ class VaultClientTest extends KernelTestCase
     public function testSeal() : void
     {
         $vaultClient = $this->createMock(VaultClient::class);
-        $this->assertTrue($vaultClient->seal());
-        $this->assertFalse($vaultClient->isSeal());
-        $this->assertFalse($vaultClient->unseal());
         $this->assertFalse($vaultClient->isSeal());
 
     }

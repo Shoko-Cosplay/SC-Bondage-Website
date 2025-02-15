@@ -51,7 +51,7 @@ services:
   php:
     user: '${USER_ID}:${GROUP_ID}'
     restart: unless-stopped
-    image: ghcr.io/shokocosplaypro/website_docker:1.2
+    image: ghcr.io/shoko-cosplay/sc-bondage-docker:master
     volumes:
       - .:/var/www:delegated
     depends_on:
@@ -120,7 +120,7 @@ services:
       - 8001:80
   messenger:
     user: '${USER_ID}:${GROUP_ID}'
-    image: ghcr.io/shokocosplaypro/website_docker:1.2
+    image: ghcr.io/shoko-cosplay/sc-bondage-docker:master
     volumes:
       - .:/var/www:delegated
     depends_on:
