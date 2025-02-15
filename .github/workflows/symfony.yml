@@ -29,6 +29,13 @@ jobs:
       - uses: actions/checkout@master
       - name: test
         run: make test
+  sonar:
+    name: Sonar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: test
+        run: make test
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
