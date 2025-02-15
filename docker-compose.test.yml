@@ -34,10 +34,6 @@ services:
       - test
   vaulttest:
     image: hashicorp/vault:latest
-    volumes:
-      - vault-data:/vault/config
-      - vault-data:/vault/policies
-      - vault-data:/vault/data
     ports:
       - "8200:8200"
     environment:
