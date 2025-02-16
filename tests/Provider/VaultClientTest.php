@@ -10,7 +10,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class VaultClientTest extends KernelTestCase
 {
 
-    public function testInstance()
+    public function testInstance() : void
     {
         static::bootKernel();
 
@@ -18,17 +18,17 @@ class VaultClientTest extends KernelTestCase
         $this->assertInstanceOf(VaultClient::class, $vaultClient);
     }
 
-    public function testRooToken()
+    public function testRooToken() : void
     {
         static::bootKernel();
 
         $httpClientMock = $this->getMockForAbstractClass(HttpClientInterface::class);
 
         $vaultClient = new VaultClient($httpClientMock);
-        $this->assertEquals($_ENV['VAULT_KEY'], $vaultClient->getRootToken() ?? null);
-        $this->assertEquals($_ENV['VAULT_DNS'], $vaultClient->getVaultAddress() ?? null);
+        $this->assertEquals($_ENV['VAULT_KEY'], $vaultClient->getRootToken());
+        $this->assertEquals($_ENV['VAULT_DNS'], $vaultClient->getVaultAddress());
     }
-    public function testIsSeal()
+    public function testIsSeal() : void
     {
         static::bootKernel();
         $responseMock = $this->createMock(\Symfony\Contracts\HttpClient\ResponseInterface::class);
@@ -43,7 +43,7 @@ class VaultClientTest extends KernelTestCase
 
     }
 
-    public function testIsSealException()
+    public function testIsSealException() :void
     {
         $httpClientMock = $this->createMock(\Symfony\Contracts\HttpClient\HttpClientInterface::class);
         $httpClientMock->method('request')->willThrowException(new \Exception("Erreur réseau"));
