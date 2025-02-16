@@ -25,7 +25,8 @@
 
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">src/Controller</directory>
+            <directory suffix=".php">src/Provider</directory>
         </include>
     </coverage>
 

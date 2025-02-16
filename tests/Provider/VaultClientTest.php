@@ -3,27 +3,52 @@
 namespace App\Tests\Provider;
 
 use App\Provider\VaultClient;
+use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class VaultClientTest extends KernelTestCase
 {
-    protected function setUp(): void
+
+    public function testInstance()
     {
-        parent::setUp();
-        self::bootKernel();
+        static::bootKernel();
+
+        $vaultClient = $this->createMock(VaultClient::class);
+        $this->assertInstanceOf(VaultClient::class, $vaultClient);
     }
 
-    public function testCreated(): void
+    public function testRooToken()
     {
-        $vaultClient = $this->createMock(VaultClient::class);
-        $this->assertInstanceOf(VaultClient::class,$vaultClient);
+        static::bootKernel();
+
+        $httpClientMock = $this->getMockForAbstractClass(HttpClientInterface::class);
+
+        $vaultClient = new VaultClient($httpClientMock);
+        $this->assertEquals($_ENV['VAULT_KEY'], $vaultClient->getRootToken() ?? null);
+        $this->assertEquals($_ENV['VAULT_DNS'], $vaultClient->getVaultAddress() ?? null);
+    }
+    public function testIsSeal()
+    {
+        static::bootKernel();
+        $responseMock = $this->createMock(\Symfony\Contracts\HttpClient\ResponseInterface::class);
+        $responseMock->method('getContent')->willReturn('{"sealed": false}'); // Simule une réponse JSON
+
+        $httpClientMock = $this->createMock(\Symfony\Contracts\HttpClient\HttpClientInterface::class);
+        $httpClientMock->method('request')->willReturn($responseMock);
+
+        $vaultClient = new VaultClient($httpClientMock);
+        $result = $vaultClient->isSeal();
+        $this->assertEquals(false, $result);
+
     }
 
-    public function testSeal() : void
+    public function testIsSealException()
     {
-        $vaultClient = $this->createMock(VaultClient::class);
-        $this->assertFalse($vaultClient->isSeal());
-
+        $httpClientMock = $this->createMock(\Symfony\Contracts\HttpClient\HttpClientInterface::class);
+        $httpClientMock->method('request')->willThrowException(new \Exception("Erreur réseau"));
+        $vaultClient = new VaultClient($httpClientMock);
+        $this->assertTrue($vaultClient->isSeal());
     }
 
 }

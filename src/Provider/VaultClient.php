@@ -19,18 +19,30 @@ class VaultClient
         $this->vaultAddress = $_ENV['VAULT_DNS'];
     }
 
+    /**
+     * @return string
+     */
+    public function getRootToken(): string
+    {
+        return $this->rootToken;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVaultAddress(): string
+    {
+        return $this->vaultAddress;
+    }
 
     public function isSeal() : bool
     {
         try {
-            $response = $this->httpClient->request("GET", $this->vaultAddress . "/v1/sys/seal-status", [
-                'headers' => [
-                    'X-Vault-Token' => $this->rootToken,
-                ]
-            ]);
+
+            $response = $this->httpClient->request("GET", $this->vaultAddress . "/v1/sys/seal-status");
             $content = json_decode($response->getContent());
             return $content->sealed;
-        } catch (ClientExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface $e) {
+        } catch (\Exception $exception) {
             return true;
         }
     }
