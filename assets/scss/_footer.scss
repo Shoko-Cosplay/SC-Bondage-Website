@@ -1,0 +1,40 @@
+footer {
+  border-top: 1px solid #f5f2f2;
+  background: #f5f2f2;
+  .legal-line{
+    background: black;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        font-weight: bolder !important;
+      }
+      &:last-child:after {
+        display: none;
+      }
+      &:after {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        content: '-';
+      }
+    }
+  }
+}
+.rgpdh2{
+  text-align: center;
+  display: block;
+  margin: 1rem;
+}
+.rgpd-content{
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  h3 {
+    color: purple;
+  }
+}

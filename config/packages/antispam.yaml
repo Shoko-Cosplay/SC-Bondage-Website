@@ -7,38 +7,47 @@
 # For more details on the options available visit https://omines.github.io/antispam-bundle/configuration/
 #
 antispam:
-    profiles:
-        default:
-            # Insert a honeypot called "email_address" on all forms to lure bots into filling it in
-            honeypot: email_address
+  profiles:
+    contact:
+      honeypot: email
+      timer:
+        min: 3
+        max: 3600
 
-            # Reject all forms that have been submitted either within 3 seconds, or after more than an hour
-            timer:
-                min: 3
-                max: 3600
+    registration:
+      honeypot: email_address
+      timer:
+        min: 3
+        max: 3600
+    default:
+      # Insert a honeypot called "email_address" on all forms to lure bots into filling it in
+      # honeypot: email_address
 
-            #
-            # The measures above should already have notable effect on the amount of spam that gets through
-            # your forms. Still getting annoying amounts? Analyze the patterns of uncaught spam, then
-            # consider uncommenting and modifying some of the examples below after careful consideration
-            # about their impact.
-            #
+      # Reject all forms that have been submitted either within 3 seconds, or after more than an hour
+      timer:
+        min: 3
+        max: 3600
 
-            # Reject text fields that contain (lame attempts at) HTML or BBCode
-#            banned_markup: true
+      #
+      # The measures above should already have notable effect on the amount of spam that gets through
+      # your forms. Still getting annoying amounts? Analyze the patterns of uncaught spam, then
+      # consider uncommenting and modifying some of the examples below after careful consideration
+      # about their impact.
+      #
 
-            # Reject text fields that consist for more than 40% of Cyrillic (Russian) characters
-#            banned_scripts:
-#                scripts: [ cyrillic ]
-#                max_percentage: 40
+      # Reject text fields that contain (lame attempts at) HTML or BBCode
+      #            banned_markup: true
 
-            # Reject fields that contain more than 3 URLs, or repeat a single URL more than once
+      # Reject text fields that consist for more than 40% of Cyrillic (Russian) characters
+      #            banned_scripts:
+      #                scripts: [ cyrillic ]
+      #                max_percentage: 40
+
+      # Reject fields that contain more than 3 URLs, or repeat a single URL more than once
 #            url_count:
 #                max: 3
 #                max_identical: 1
 
 when@test:
-    antispam:
-        # In automated tests the bundle and included components are by default disabled. You can still
-        # enable them for individual test cases via the main AntiSpam service.
-        enabled: false
+  antispam:
+    enabled: false

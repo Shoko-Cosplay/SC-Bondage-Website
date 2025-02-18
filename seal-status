@@ -1,0 +1,1 @@
+{"type":"shamir","initialized":true,"sealed":false,"t":1,"n":1,"progress":0,"nonce":"","version":"1.18.4","build_date":"2025-01-29T13:57:54Z","migration":false,"cluster_name":"vault-cluster-2f499ef2","cluster_id":"015b0a7c-6a37-c32d-960f-da4b5e9a5436","recovery_seal":false,"storage_type":"inmem"}

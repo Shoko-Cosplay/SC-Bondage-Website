@@ -1,0 +1,94 @@
+.login_form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50vw;
+  background: #0c0c0c;
+  padding: 0.5rem;
+  img {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h2 {
+    text-align: center;
+    display: block;
+    color: white;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  .btn-login,
+  .btn-addAccount{
+    text-align: center;
+    background: red;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+  }
+  .text-muted{
+    color: white !important;
+  }
+}
+
+.slave-login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 25vw;
+  background: #0c0c0c;
+  padding: 0.5rem;
+  img {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h2 {
+    text-align: center;
+    display: block;
+    color: white;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+   a{
+     text-align: center;
+     background: red;
+     display: block;
+     width: 100%;
+     padding: 0.5rem;
+     text-decoration: none;
+     color: white;
+   }
+  h1 {
+    text-align: center;
+    display: block;
+    color: white;
+  }
+  form {
+    padding: 1.25rem;
+    label {
+      color: white;
+      font-weight: bolder;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  }
+  .btn-master{
+    background: red !important;
+    color: white !important;
+    box-shadow: none !important;
+    width: 100%;
+  }
+  .btn-slave {
+    background: purple !important;
+    color: white !important;
+    box-shadow: none !important;
+    width: 100%;
+  }
+}

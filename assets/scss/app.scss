@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&family=Playwrite+US+Trad:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+h1,h2,h3,h4,h5,h6,a,p,span,button,label{
+  font-family: 'Exo 2',sans-serif !important;
+  color: white;
+}
+
+body {
+  margin: 0;
+  background: black;
+}
+header {
+
+}
+main {
+  min-height: 100vh;
+  position: relative;
+}
+@import "./nav.scss";
+@import "./contact.scss";
+@import "./footer.scss";
+@import "./legal.scss";
+@import "./login.scss";

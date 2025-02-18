@@ -1,0 +1,60 @@
+{% extends 'app/base.twig' %}
+
+{% block title %}
+  Liste des Copyright - Crédit
+{% endblock %}
+
+{% block description %}
+  Liste des Copyright - Crédit
+{% endblock %}
+
+
+{% block content %}
+  <div class="credits_list">
+   <h2>Images</h2>
+    <div class="row">
+      {% for credit in credits.image %}
+        <div class="col-12 col-lg-2">
+          <div class="item">
+            <div class="d-block text-center">
+              <img src="{{ ogImage(credit.path,'webp') }}" width="100">
+            </div>
+            <div class="d-block text-center">
+              <span>{{ credit.author }}</span><br/>
+              <a class="{{ credit.link }}" href="{{ credit.link }}" target="_blank">{{ credit.link }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h2>Libs PHP</h2>
+    <div class="row">
+      {% for key,credit in libs.php %}
+        <div class="col-12 col-lg-2 mb-3">
+          <div class="item">
+            <div class="d-block text-center">
+              <span>{{ key }}</span><br/>
+              <a class="{{ credit }}" href="{{ credit }}" target="_blank">{{ credit }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+    <h2>Libs NODE</h2>
+    <div class="row">
+      {% for key,credit in libs.node %}
+        <div class="col-12 col-lg-2 mb-3">
+          <div class="item">
+            <div class="d-block text-center">
+              <span>{{ key }}</span><br/>
+              <a class="{{ credit }}" href="{{ credit }}" target="_blank">{{ credit }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

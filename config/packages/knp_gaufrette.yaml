@@ -1,0 +1,18 @@
+knp_gaufrette:
+  stream_wrapper:
+    protocol: gaufrette
+    filesystems:
+      avatars: storage_avatar_fs
+  adapters:
+    storage_avatar_adapter:
+      aws_s3:
+        service_id: amazonS3
+        bucket_name: 'slave-shoko-cosplay'
+        detect_content_type: true
+        options:
+          directory : 'avatars'
+          create: true
+
+  filesystems:
+    storage_avatar_fs:
+      adapter: storage_avatar_adapter

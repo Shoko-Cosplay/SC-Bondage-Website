@@ -1,5 +1,23 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Http/Controller/
+    namespace: App\Http\Controller
+  type: attribute
+api_controllers:
+  name_prefix: api_
+  prefix: /api
+  resource:
+    path: ../src/Http/Api/
+    namespace: App\Http\Api
+  type: attribute
+
+legacy_search:
+  path: /search
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: 'search'
+    permanent: true
+    keepQueryParams: true
+    keepRequestMethod: true
+presta_sitemap:
+  resource: "@PrestaSitemapBundle/config/routing.yml"

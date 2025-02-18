@@ -1,0 +1,162 @@
+{% extends 'app/base.twig' %}
+
+{% block title %}Mentions légal{% endblock %}
+{% block description %}Mentions légal{% endblock %}
+
+{% block content %}
+  <h2 class="d-block text-center">Mentions légale</h2>
+  <div class="legal-content">
+    <div class="row">
+      <div class="col-12 col-lg-5">
+        <div class="card">
+          <div class="card-header">
+            <h2>Information sur l'entreprise</h2>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><span>SIREN :<strong><a href="https://annuaire-entreprises.data.gouv.fr/entreprise/jovann-serreau-shokocosplay-935395061" target="_blank">935395061</a> </strong></span></li>
+              <li><span>Activité principale :<strong>Fabrication d’autres vêtements et accessoires</strong></span></li>
+              <li><span>NAF :<strong>14.19Z</strong></span></li>
+              <li><span>Statut juridique  :<strong>Entrepreneur individuel</strong></span></li>
+              <li><span>Numéro TVA intracommunautaire :<strong>TVA FR27 935 395 061</strong></span></li>
+              <li><span>Numéro EORI:<strong>FR93539506100010</strong></span></li>
+              <li><span>Email :<strong class="display-address">Voir l'adresse email</strong></span></li>
+              <li><span>N° de décalaration à la CNIL :<strong>DPO-157471</strong></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <div class="card">
+          <div class="card-header">
+            <h2>Informations sur le dirigeant
+            </h2>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><span>Nom & Prénom :<strong>Serreau Jovann</strong></span></li>
+              <li><span>Status :<strong>Gérant</strong></span></li>
+              <li><span>Email :<strong class="display-address">Voir l'adresse email</strong></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Hébergeur & Service Tierce
+            </h2>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><span>Nom de domaine :<strong><a href="https://www.infomaniak.com/fr" target="_blank"
+                                                   title="Infomaniak">www.infomaniak.com</a></strong></span></li>
+              <li><span>Email :<strong><a href="https://www.infomaniak.com/fr" target="_blank" title="Infomaniak">www.infomaniak.com</a></strong></span>
+              </li>
+              <li><span>Site Internet :<strong><a href="https://www.infomaniak.com/fr" target="_blank"
+                                                  title="Infomaniak">www.infomaniak.com</a></strong></span></li>
+              <li class="service"><span>Site tierce :</span><strong>{% for service in tierService() %}<a
+                    href="{{ service.link }}" target="_blank"
+                    title="{{ service.title }}">{{ service.label }}</a>{% if loop.last == false %},{% endif %}{% endfor %}
+                </strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h2>Propriété intellectuelle
+            </h2>
+          </div>
+          <div class="card-body">
+            <p>
+              Le contenu de ce site (textes, images, logos, etc.) est la propriété de ShokoCosplay et est protégé par
+              les lois relatives à la propriété intellectuelle. Toute reproduction ou utilisation sans autorisation est
+              interdite.
+              <strong class="warning">Certains photos peuvent venir d'autre source, ceci sera préciez en desous la
+                photos, video ou autre</strong>
+
+              <strong>Liste des total des crédits des photos, vidéo, etc, peuvent se trouver sur cette page:</strong>
+              <a href="{{ path('app_legal_credit') }}" class="btn btn-credit" title="Liste des crédits">Crédits</a>
+
+              <small>Si vous êtes l'auteur d'une photo, vidéo ou autre contenu présent sur ce site et que vous souhaitez
+                que je retire votre création, n'hésitez pas à me contacter directement. (PS : Je pourrai vous demander
+                une preuve attestant que vous en êtes bien le propriétaire.)</small>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Litiges
+            </h2>
+          </div>
+          <div class="card-body">
+            <p>En cas de litige, les tribunaux compétents sont ceux de <strong>Saint-Quentin</strong>.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Crédits
+            </h2>
+          </div>
+          <div class="card-body">
+            <p>Design et développement : Conçu par <strong>Serreau Jovann</strong>.</p>
+            <p>Images / Vidéos : <a target="_blank" title="Voir tout les crédits" href="{{ path('app_legal_credit') }}"><strong>Voir tout les crédits</strong></a> </p>
+            <p>Icônes : <strong>Font Awesome</strong> </p>
+            <p>Polices  : <strong>Google Fonts</strong> </p>
+            <p>Paiments  : <strong>Stancer, Scaleway</strong> </p>
+            <p>Livraison  : <strong>LaPoste, MondialRelay</strong> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h2>Données personnelles :</h2>
+          </div>
+          <div class="card-body">
+            <p>
+              Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez des droits suivants sur vos données personnelles :
+            </p>
+            <ul>
+              <li>
+                <span>Droit d'accès</span>
+                <span>Vous pouvez demander à accéder aux données que nous détenons à votre sujet. (si vous disposez d'un compte)</span>
+              </li>
+              <li>
+                <span>Droit de rectification</span>
+                <span>Vous pouvez demander la correction de données inexactes ou incomplètes. (si vous disposez d'un compte)</span>
+              </li>
+              <li>
+                <span>Droit à l'effacement</span>
+                <span>Vous pouvez demander la suppression de vos données, sous réserve des obligations légales. (si vous disposez d'un compte)</span>
+              </li>
+              <li>
+                <span>Droit à la portabilité</span>
+                <span>Vous pouvez demander à recevoir vos données dans un format structuré et lisible. (si vous disposez d'un compte)</span>
+              </li>
+              <li>
+                <span>Droit d'opposition</span>
+                <span>Vous pouvez vous opposer au traitement de vos données pour des motifs légitimes. (si vous disposez d'un compte)</span>
+              </li>
+            </ul>
+            <p>Pour exercer ces droits, contactez-nous à l'adresse suivante : <strong class="display-address">Voir l'adresse email</strong>.</p>
+            <p>
+              Le responsable du traitement des données personnelles est Serreau Jovann, joignable à l'adresse suivante : <strong class="display-address">Voir l'adresse email</strong>.
+            </p>
+            <p>
+              Ce site est conforme au RGPD et a fait l'objet d'une déclaration auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) sous le numéro <strong>DPO-157471</strong>.
+            </p>
+            <p>
+              Les données collectées par ce site sont stockées dans l'Union européenne (UE) par Infomaniak, notre hébergeur, garantissant ainsi leur conformité aux normes européennes de protection des données et anonyme.
+            </p>
+            <p>
+              Ce site peut utiliser des services tiers (outils d'analyse, réseaux sociaux, etc.). Les données collectées par ces services sont régies par leurs propres politiques de confidentialité. Nous vous invitons à consulter les politiques respectives de ces services pour plus d'informations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

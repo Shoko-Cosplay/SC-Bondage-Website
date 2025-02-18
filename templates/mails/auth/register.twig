@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>{{ subject }}</title>
+  <style type="text/css">
+    /* Base CSS - Will be inlined */
+    {% block styles %}
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+      font-family: Arial, sans-serif;
+    }
+    .email-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .email-content {
+      background-color: #ffffff;
+      padding: 30px;
+    }
+    .header {
+      font-size: 24px;
+      color: #333333;
+      padding-bottom: 20px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #666666;
+    }
+    a {
+      color: #3498db;
+      text-decoration: underline;
+    }
+    /* Responsive styles */
+    @media only screen and (max-width: 620px) {
+      .email-wrapper {
+        width: 100% !important;
+        padding: 10px !important;
+      }
+    }
+    {% endblock %}
+  </style>
+</head>
+<body>
+{% block preheader %}
+  <!-- Preheader text (hidden in email client) -->
+  <div style="display: none; max-height: 0; overflow: hidden;">
+    {% block preheader_text %}Default preheader text{% endblock %}
+  </div>
+{% endblock %}
+
+<div class="email-wrapper">
+  <div class="email-content">
+    <div class="header">
+      {% block logo %}
+        <img src="{{ absolute_url(ogImage('images/logo.jpg','webp') )}}" alt="Company Logo" style="max-width: 100px; height: auto;display: block;margin-left: auto;margin-right: auto">
+      {% endblock %}
+    </div>
+
+    <p> Bienvenue sur Shoko-Cosplay.fr !</p>
+
+    <p>    Vous venez de créer un compte sur Grafikart.fr. Pour activer votre compte il vous suffit de cliquer sur ce lien</p>
+
+    <a href="{{ absolute_url(path('app_register_confirm',{id:user.id,token:user.confirmationToken})) }}">Valider mon compte</a>
+
+
+    <p style="font-size: 8px;font-weight: bold">
+      Si vous n'êtes pas à l'origine de la création de ce compte ne tenez pas compte de cet email, le compte sera automatiquement supprimé.
+    </p>
+
+
+    <div class="footer">
+      <p>© {{ "now"|date("Y") }} Shoko Cosplay, All rights reserved.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+Key features o

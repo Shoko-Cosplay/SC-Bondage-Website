@@ -23,6 +23,8 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "ext-redis": "*",
+        "aws/aws-sdk-php": "*",
+        "aws/aws-sdk-php-symfony": "*",
         "beberlei/doctrineextensions": "^1.5",
         "cocur/slugify": "^4.6",
         "crowdsec/bouncer": "^4.2",
@@ -33,6 +35,7 @@
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^3.4",
         "doctrine/orm": "^3.3",
+        "docusealco/docuseal-php": "*",
         "eko/feedbundle": "^2.2",
         "erusev/parsedown": "^1.7",
         "friendsofphp/php-cs-fixer": "^3.67",
@@ -40,10 +43,15 @@
         "google/apiclient": "^2.18",
         "illuminate/collections": "^11.37",
         "intervention/image": "^2.7",
+        "knplabs/knp-gaufrette-bundle": "*",
         "knplabs/knp-paginator-bundle": "^6.6",
         "lcobucci/jwt": "^5.4",
+        "league/flysystem-async-aws-s3": "*",
+        "league/flysystem-aws-s3-v3": "*",
+        "league/flysystem-bundle": "*",
         "league/glide": "^2.3",
         "liip/imagine-bundle": "^2.13",
+        "mittwald/vault-php": "*",
         "mlocati/ip-lib": "^1.20",
         "nelmio/cors-bundle": "^2.5",
         "omines/antispam-bundle": "*",
@@ -51,7 +59,7 @@
         "phpdocumentor/reflection-docblock": "^5.6",
         "phpstan/phpdoc-parser": "^2.0",
         "presta/sitemap-bundle": "^4.1",
-        "sentry/sentry-symfony": "*",
+        "sentry/sentry": "^4.10",
         "symfony/asset": "7.2.*",
         "symfony/asset-mapper": "7.2.*",
         "symfony/console": "7.2.*",
@@ -64,6 +72,7 @@
         "symfony/http-client": "7.2.*",
         "symfony/intl": "7.2.*",
         "symfony/mailer": "7.2.*",
+        "symfony/mercure-bundle": "^0.3.9",
         "symfony/mime": "7.2.*",
         "symfony/monolog-bundle": "^3.0",
         "symfony/notifier": "7.2.*",
@@ -138,7 +147,8 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "7.2.*"
+            "require": "7.2.*",
+            "docker": true
         }
     },
     "require-dev": {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.get('_locale') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShokoCosplay - Toy</title>
+  <meta name="description" content="Application for management Toy Service">
+  <meta name="author" content="Shoko Cosplay">
+  <meta name="copyright" content="Shoko Cosplay">
+  <meta name="robots" content="index, nofollow">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png')}}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicon/apple-icon-60x60.png')}}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicon/apple-icon-72x72.png')}}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/apple-icon-76x76.png')}}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('favicon/apple-icon-144x144.png')}}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('favicon/apple-icon-120x120.png')}}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('favicon/apple-icon-144x144.png')}}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('favicon/apple-icon-152x152.png')}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-icon-180x180.png')}}">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicon/favicon-256x256.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicon/favicon-96x96.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png')}}">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="Shoko Cosplay">
+  <meta property="og:url" content="https://www.shoko-cosplay.fr">
+  <meta property="og:image" content="https://www.shoko-cosplay.fr/logo.jpg">
+  <meta property="og:description" content="Application for management Toy Service">
+
+  <meta name="twitter:card" content="app">
+  <meta name="twitter:site" content="@Shoko Cosplay">
+  <meta name="twitter:description" content="Application for management Toy Service">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "WebSite",
+      "url": "ShokoCosplay Toy"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "name": "Shoko Cosplay",
+      "logo": "https://www.shoko-cosplay.fr/logo.jpg",
+      "url": "https://www.shoko-cosplay.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "France"
+      },
+      "sameAs": ["https://www.facebook.com/CosplayShoko/?locale=fr_FR", "https://www.instagram.com/cosplay_shoko/","https://www.tiktok.com/@cosshoko"]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Store",
+      "name": "Shoko Cosplay",
+      "image": "https://www.shoko-cosplay.fr/logo.jpg",
+      "priceRange": "$",
+      "url": "https://www.shoko-cosplay.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "addressCountry": "France"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "17:00",
+          "closes": "00:00"
+        }
+      ],
+      "sameAs": ["https://www.facebook.com/CosplayShoko/?locale=fr_FR", "https://www.instagram.com/cosplay_shoko/","https://www.tiktok.com/@cosshoko"]
+    }
+  </script>
+
+  {% if app.environment == "prod" %}
+    <script defer data-domain="toy.shoko-cosplay.fr" src="https://toy.shoko-cosplay.fr"></script>
+  {% else %}
+    <script defer data-domain="esyweb.local:7070" src="http://esyweb.local:7070/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+  {% endif %}
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+</head>
+<body>
+
+</body>
+</html>
