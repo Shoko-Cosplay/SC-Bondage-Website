@@ -42,7 +42,11 @@ class LegalController extends BaseController
         return $this->render('app/legal/cgu.twig');
     }
 
-
+    #[Route('/{slug}.html', name: 'app_age_verig')]
+    public function ageVerif(): Response
+    {
+        return new Response($_ENV['AGE_VERIF_CONTENT']);
+    }
 
     #[Route('/contact', name: 'app_legal_contact',options: ['sitemap' => ['priority' => 0.5, 'changefreq' => UrlConcrete::CHANGEFREQ_DAILY]])]
     public function contact(Request $request,HttpClientInterface $httpClient,Mailer $mailer,GeoIpService $geoIpService): Response

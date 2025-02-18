@@ -12,6 +12,7 @@ export class CaptachaForm extends HTMLElement{
     this.parentElement.appendChild(vm);
 
     let captcha = hcaptcha.render(this,{
+      theme: 'dark',
       sitekey : this.getAttribute('key'),
       callback: function (e){
         input.value = e;

@@ -106,7 +106,7 @@ services:
       - ./tools/mosquitto:/mosquitto
     ports:
       - 1883:1883
-      - 8080:8080
+      - 8181:8080
   mercure:
     restart: unless-stopped
     image: dunglas/mercure
@@ -130,6 +130,7 @@ services:
     environment:
       MESSENGER_TRANSPORT_DSN: redis://redis:6379/messages
       MESSENGER_TRANSPORT_FAILED_DSN: redis://redis:6379/messages_failed
+
   # Dev tools
   docuseal:
     depends_on:

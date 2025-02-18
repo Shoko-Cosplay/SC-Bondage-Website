@@ -36,12 +36,12 @@ class FakerCommand extends Command
 
 
 
-        foreach (range(1,20) as $cosI) {
+        foreach (range(1,5) as $cosI) {
             $user = new User();
             $user->setUsername($faker->userName);
             $user->setEmail($faker->email);
             $user->setPassword($this->userPasswordHasher->hashPassword($user,'1234'));
-            $user->setRoles(['ROLE_COSPLAYER']);
+            $user->setRoles(['ROLE_MASTER']);
             $user->setCreatedAt(new \DateTimeImmutable());
             $user->setCountry($faker->countryCode());
             $path = $faker->image(sys_get_temp_dir(), 300, 300, ['cats']);
@@ -51,46 +51,36 @@ class FakerCommand extends Command
             $this->entityManager->persist($user);
 
 
-            $c = new Cosplayers();
-            $c->setPseudo($user->getUsername());
-            $c->setUser($user);
-            $this->entityManager->persist($c);
+        }
+        foreach (range(1,5) as $cosI) {
+            $user = new User();
+            $user->setUsername($faker->userName);
+            $user->setEmail($faker->email);
+            $user->setPassword($this->userPasswordHasher->hashPassword($user,'1234'));
+            $user->setRoles(['ROLE_SLAVE']);
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setCountry($faker->countryCode());
+            $path = $faker->image(sys_get_temp_dir(), 300, 300, ['cats']);
+            $uploaded = new UploadedFile($path,"avatar-".$cosI.".jpg","image/jpeg",null,true);
+            $user->setAvatarFile($uploaded);
 
-            $cTitok = new CosplayersSocial();
-            $cTitok->setNetwork("tiktok");
-            $cTitok->setLink($faker->domainWord);
-            $cTitok->setCosplayer($c);
-            $this->entityManager->persist($cTitok);
+            $this->entityManager->persist($user);
 
-            $cInstragram = new CosplayersSocial();
-            $cInstragram->setNetwork("instagram");
-            $cInstragram->setLink($faker->domainWord);
-            $cInstragram->setCosplayer($c);
-            $this->entityManager->persist($cInstragram);
+        }
+        foreach (range(1,5) as $cosI) {
+            $user = new User();
+            $user->setUsername($faker->userName);
+            $user->setEmail($faker->email);
+            $user->setPassword($this->userPasswordHasher->hashPassword($user,'1234'));
+            $user->setRoles(['ROLE_BONDAGE']);
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setCountry($faker->countryCode());
+            $path = $faker->image(sys_get_temp_dir(), 300, 300, ['cats']);
+            $uploaded = new UploadedFile($path,"avatar-".$cosI.".jpg","image/jpeg",null,true);
+            $user->setAvatarFile($uploaded);
 
-            $cX = new CosplayersSocial();
-            $cX->setNetwork("twitter");
-            $cX->setLink($faker->domainWord);
-            $cX->setCosplayer($c);
-            $this->entityManager->persist($cX);
+            $this->entityManager->persist($user);
 
-            $cFacebook = new CosplayersSocial();
-            $cFacebook->setNetwork("facebook");
-            $cFacebook->setLink($faker->domainWord);
-            $cFacebook->setCosplayer($c);
-            $this->entityManager->persist($cFacebook);
-
-            $cFansly = new CosplayersSocial();
-            $cFansly->setNetwork("fansly");
-            $cFansly->setLink($faker->domainWord);
-            $cFansly->setCosplayer($c);
-            $this->entityManager->persist($cFansly);
-
-            $cOnlyfans = new CosplayersSocial();
-            $cOnlyfans->setNetwork("onlyfans");
-            $cOnlyfans->setLink($faker->domainWord);
-            $cOnlyfans->setCosplayer($c);
-            $this->entityManager->persist($cOnlyfans);
 
         }
 

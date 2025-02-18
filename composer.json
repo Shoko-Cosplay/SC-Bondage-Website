@@ -36,6 +36,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.4",
         "doctrine/orm": "^3.3",
         "docusealco/docuseal-php": "*",
+        "drenso/symfony-oidc-bundle": "^4.0",
         "eko/feedbundle": "^2.2",
         "erusev/parsedown": "^1.7",
         "friendsofphp/php-cs-fixer": "^3.67",
@@ -172,6 +173,7 @@
         "symfony/phpunit-bridge": "^7.2",
         "symfony/stopwatch": "7.2.*",
         "symfony/web-profiler-bundle": "7.2.*",
-        "theofidry/alice-data-fixtures": "^1.8"
+        "theofidry/alice-data-fixtures": "^1.8",
+        "xvladqt/faker-lorem-flickr": "^1.0"
     }
 }

@@ -42,6 +42,6 @@ class AuthenticationEntryPoint implements AuthenticationEntryPointInterface
             );
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_login'));
+        return new RedirectResponse($this->urlGenerator->generate('app_root'));
     }
 }

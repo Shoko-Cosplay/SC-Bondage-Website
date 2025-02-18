@@ -14,10 +14,12 @@ use App\Database\Password\Form\PasswordResetConfirmForm;
 use App\Database\Password\Form\PasswordResetRequestForm;
 use App\Database\Password\PasswordService;
 use App\Database\Password\Repository\PasswordResetTokenRepository;
+use App\Infrastructure\Rss\RssFeedGenerator;
 use App\Infrastructure\Security\TokenGeneratorService;
 use App\Infrastructure\Social\SocialLoginService;
 use Doctrine\ORM\EntityManagerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
+use Redis;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -31,8 +33,20 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class SecurityController extends BaseController
 {
 
+    private Redis $redis;
+
+    public function __construct(RssFeedGenerator $rssFeedGenerator, Redis $redis)
+    {
+        parent::__construct($rssFeedGenerator);
+        $this->redis = $redis;
+    }
+
     #[Route('/validation-compte/{id}/{token}', name: 'app_register_confirm')]
     public function appRegisterConfirm(int $id,string $token,UserRepository $userRepository,EntityManagerInterface $entityManager){
+        $loggedInUser = $this->getUser();
+        if ($loggedInUser) {
+            return $this->redirectToRoute('app_root');
+        }
         $user = $userRepository->findOneBy(['id'=>$id,'confirmationToken'=>$token]);
         if(!$user instanceof User) {
             $this->addFlash('error', "Ce token n'est pas valide");
@@ -56,6 +70,10 @@ class SecurityController extends BaseController
     #[Route('/password/new', name: 'app_forgot')]
     public function passwordNew(HttpClientInterface $httpClient,Request $request, PasswordService $resetService)
     {
+        $loggedInUser = $this->getUser();
+        if ($loggedInUser) {
+            return $this->redirectToRoute('app_root');
+        }
         $error = null;
         $data = new PasswordResetRequestData();
         $form = $this->createForm(PasswordResetRequestForm::class, $data);
@@ -91,19 +109,23 @@ class SecurityController extends BaseController
     public function passwordConfirm(int $id,string $token,Request $request,PasswordService $passwordService,
     UserRepository $userRepository,PasswordResetTokenRepository $passwordResetTokenRepository)
     {
+        $loggedInUser = $this->getUser();
+        if ($loggedInUser) {
+            return $this->redirectToRoute('app_root');
+        }
         $user = $userRepository->find($id);
         $token = $passwordResetTokenRepository->findOneBy(['token'=>$token]);
         if(!$user instanceof User) {
             $this->addFlash('login_form_error', 'Ce token a expiré');
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_root');
         }
         if(!$token instanceof PasswordResetToken) {
             $this->addFlash('login_form_error', 'Ce token a expiré');
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_root');
         }
         if($token->getUser() != $user) {
             $this->addFlash('login_form_error', 'Ce token a expiré');
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_root');
         }
 
         if($passwordService->isExpired($token)){

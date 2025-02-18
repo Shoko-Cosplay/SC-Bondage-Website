@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73bf9ebc82cee3a9d7c1ed3e47366e66",
+    "content-hash": "11668244d7f43f9b134930aac14d4bfd",
     "packages": [
         {
             "name": "async-aws/core",
@@ -2502,6 +2502,93 @@
                 "source": "https://github.com/docusealco/docuseal-php/tree/1.0.2"
             },
             "time": "2025-01-08T22:41:00+00:00"
+        },
+        {
+            "name": "drenso/symfony-oidc-bundle",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Drenso/symfony-oidc.git",
+                "reference": "c5a8e8ab1d1a6c6d9307a440cdf748d7f8a093f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Drenso/symfony-oidc/zipball/c5a8e8ab1d1a6c6d9307a440cdf748d7f8a093f3",
+                "reference": "c5a8e8ab1d1a6c6d9307a440cdf748d7f8a093f3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-filter": "*",
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "lcobucci/jwt": "^5.0",
+                "php": ">=8.1",
+                "phpseclib/phpseclib": "^3.0.36",
+                "psr/clock": "^1.0",
+                "psr/container": "^1.1 || ^2.0",
+                "psr/log": "^1.1 || ^2.0 || ^3.0",
+                "symfony/config": "^5.4 || ^6.3 || ^7.0",
+                "symfony/dependency-injection": "^5.4 || ^6.3 || ^7.0",
+                "symfony/event-dispatcher": "^5.4 || ^6.3 || ^7.0",
+                "symfony/http-foundation": "^5.4 || ^6.3 || ^7.0",
+                "symfony/http-kernel": "^5.4 || ^6.3 || ^7.0",
+                "symfony/property-access": "^5.4 || ^6.3 || ^7.0",
+                "symfony/security-bundle": "^5.4 || ^6.3 || ^7.0",
+                "symfony/security-core": "^5.4 || ^6.3 || ^7.0",
+                "symfony/security-http": "^5.4 || ^6.3 || ^7.0",
+                "symfony/string": "^5.4 || ^6.3 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.68.5",
+                "phpstan/extension-installer": "1.4.3",
+                "phpstan/phpstan": "2.1.2",
+                "phpstan/phpstan-deprecation-rules": "2.0.1",
+                "rector/rector": "2.0.7",
+                "symfony/cache": "^5.4 || ^6.3 || ^7.0",
+                "symfony/translation-contracts": "^2.0 || ^3.0"
+            },
+            "suggest": {
+                "symfony/cache": "When installed, IdP information will be automatically cached"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drenso\\OidcBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bob van de Vijver",
+                    "email": "bob@drenso.nl"
+                },
+                {
+                    "name": "Tobias Feijten",
+                    "email": "tobias@drenso.nl"
+                }
+            ],
+            "description": "OpenID connect bundle for Symfony",
+            "homepage": "https://gitlab.drenso.nl/intern/symfony-oidc",
+            "keywords": [
+                "OpenID Connect",
+                "oidc",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/Drenso/symfony-oidc/issues",
+                "source": "https://github.com/Drenso/symfony-oidc/tree/v4.0.0"
+            },
+            "time": "2025-02-11T08:58:45+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -17462,6 +17549,56 @@
                 }
             ],
             "time": "2024-03-03T12:36:25+00:00"
+        },
+        {
+            "name": "xvladqt/faker-lorem-flickr",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xvladxtremal/Faker-LoremFlickr.git",
+                "reference": "ed4b8c2892b873b9c4949829c8b6f760827f97f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xvladxtremal/Faker-LoremFlickr/zipball/ed4b8c2892b873b9c4949829c8b6f760827f97f4",
+                "reference": "ed4b8c2892b873b9c4949829c8b6f760827f97f4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "fakerphp/faker": "~1",
+                "php": "^5.4 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Xvladqt\\Faker\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladyslav Volynets",
+                    "email": "xvladxtreme@gmail.com"
+                }
+            ],
+            "description": "loremflickr.com provider for Faker",
+            "keywords": [
+                "faker",
+                "loremflickr.com",
+                "provider"
+            ],
+            "support": {
+                "issues": "https://github.com/xvladxtremal/Faker-LoremFlickr/issues",
+                "source": "https://github.com/xvladxtremal/Faker-LoremFlickr/tree/v1.0.0"
+            },
+            "time": "2021-01-18T02:03:35+00:00"
         }
     ],
     "aliases": [],

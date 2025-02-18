@@ -4,8 +4,8 @@ security:
     App\Domain\Auth\User:
       algorithm: auto
   role_hierarchy:
-    ROLE_ADMIN : ROLE_USER
-    ROLE_COSPLAYER: ROLE_USER
+    ROLE_ADMIN : 'ROLE_VERIFY'
+    ROLE_VERIFY : 'ROLE_USER'
   # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
   providers:
     # used to reload user from session & other features (e.g. switch_user)

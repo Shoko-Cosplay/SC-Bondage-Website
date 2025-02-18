@@ -26,7 +26,7 @@ class Authenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    final public const LOGIN_ROUTE = 'app_login';
+    final public const LOGIN_ROUTE = 'app_root';
     private ?Passport $lastPassport = null;
 
     public function __construct(
