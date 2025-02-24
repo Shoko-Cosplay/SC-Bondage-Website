@@ -100,7 +100,7 @@
     <header>
 
     </header>
-    <main>
+    <main class="{% if typeDashboard is defined %}typeDashboard{% endif %}">
       {% block content %}
       {% endblock %}
     </main>

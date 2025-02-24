@@ -130,7 +130,6 @@ services:
     environment:
       MESSENGER_TRANSPORT_DSN: redis://redis:6379/messages
       MESSENGER_TRANSPORT_FAILED_DSN: redis://redis:6379/messages_failed
-
   # Dev tools
   docuseal:
     depends_on:
@@ -239,11 +238,6 @@ volumes:
   search-data:
     driver: local
   vault-data:
-
-###> symfony/mercure-bundle ###
-  mercure_data:
-  mercure_config:
-###< symfony/mercure-bundle ###
     driver: local
 networks:
   dev:

@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class BaseController extends AbstractController
 {
-
     protected array $params;
 
     public function __construct(RssFeedGenerator $rssFeedGenerator)
@@ -26,17 +25,15 @@ abstract class BaseController extends AbstractController
 
     protected function render(string $view, array $parameters = [], ?Response $response = null): Response
     {
-        $parameters = array_merge($parameters,$this->params);
-        $parameters['title'] =  $this->params['og_title'];
-        $parameters['description'] =  $this->params['og_description'];
+        $parameters = array_merge($parameters, $this->params);
+        $parameters['title'] = $this->params['og_title'];
+        $parameters['description'] = $this->params['og_description'];
 
         $parameters['env'] = [];
-        foreach($_ENV as $key => $value){
+        foreach ($_ENV as $key => $value) {
             $parameters['env'][$key] = $value;
         }
 
-
         return parent::render($view, $parameters, $response);
     }
-
 }

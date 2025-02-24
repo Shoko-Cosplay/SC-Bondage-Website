@@ -42,6 +42,9 @@
   width: 25vw;
   background: #0c0c0c;
   padding: 0.5rem;
+  &.size {
+    width:  50vw;
+  }
   img {
     width: 250px;
     display: block;
@@ -91,4 +94,8 @@
     box-shadow: none !important;
     width: 100%;
   }
+}
+.app_layout{
+  display: grid;
+  grid-template-columns: 20% 80%;
 }

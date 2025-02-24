@@ -1,0 +1,68 @@
+.type-account{
+  border: 1px solid #cdcdcd;
+  background: black !important;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  .item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    i {
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+      display: block;
+    }
+    span {
+      text-align: center;
+    }
+    img {
+      width: 50px !important;
+      height: 50px !important;
+    }
+  }
+}
+
+.typeDashboard{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  .menu{
+    background: #333333;
+    h1 {
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+    }
+    label {
+      text-align: center;
+      display: block;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0.5rem;
+    .item{
+      padding: 0.25rem;
+      margin-bottom: 0.2rem;
+      border: 1px solid #cdcdcd;
+      background: black;
+      color: white;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  .logo {
+    width: 100%;
+    text-align: center  ;
+    img {
+      margin-top: 0.3rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+    }
+    display: block;
+  }
+}
